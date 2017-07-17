@@ -1,22 +1,22 @@
 import React, { Component } from "react";
-import { AppRegistry, StyleSheet, Text, View } from "react-native";
-import { Container, Content } from "native-base";
-import PageHeader from "./components/PageHeader";
-import CoverImage from "./components/CoverImage";
-import Info from "./components/Info";
-import Duration from "./components/Duration";
-import PlayerControl from "./components/PlayerControl";
+import { AppRegistry } from "react-native";
+import { Provider } from "react-redux";
+import allReducers from "./reducers";
+import { applyMiddleware, createStore } from "redux";
+import thunk from "redux-thunk";
+import logger from "redux-logger";
+import App from "./app";
+
+const store = createStore(allReducers, applyMiddleware(thunk, logger));
+
 export default class MusicPlayerUI extends Component {
   render() {
     return (
-      <Container>
-        <PageHeader />
-        <CoverImage />
-        <Info />
-        <Duration />
-        <PlayerControl />
-      </Container>
+      <Provider store={store}>
+        <App />
+      </Provider>
     );
   }
 }
+
 AppRegistry.registerComponent("MusicPlayerUI", () => MusicPlayerUI);
