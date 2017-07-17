@@ -19,13 +19,14 @@ class App extends Component {
   }
 
   render() {
+    const { trackInfo } = this.props;
     return (
       <Container>
         <PageHeader />
-        <CoverImage />
-        <Info />
-        <Duration />
-        <PlayerControl />
+        <CoverImage image={"https://www.eff.org/files/tor-https-1.png"} />
+        <Info title={trackInfo.title} artist={trackInfo.artist} />
+        <Duration duration={trackInfo.duration} />
+        <PlayerControl isLiked={trackInfo.is_liked} likes={trackInfo.likes} />
       </Container>
     );
   }
