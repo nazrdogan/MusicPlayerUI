@@ -5,14 +5,18 @@ export default {
     flex: 1,
     marginLeft: 10,
     marginRight: 10,
+    alignItems: "center",
+    flexDirection: "row",
     justifyContent: "center"
   },
-  duration: {
-    flex: 1,
-    flexDirection: "row",
-    alignItems: "flex-start",
-    justifyContent: "space-between",
-    marginHorizontal: 4,
-    alignItems: "flex-end"
+
+  button: {
+    alignSelf: "center",
+    margin: 10
+  },
+  playButton: {
+    alignSelf: "center",
+    margin: 10,
+    fontSize: 60
   }
 };

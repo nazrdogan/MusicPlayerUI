@@ -5,6 +5,7 @@ import PageHeader from "./components/PageHeader";
 import CoverImage from "./components/CoverImage";
 import Info from "./components/Info";
 import Duration from "./components/Duration";
+import PlayerControl from "./components/PlayerControl";
 export default class MusicPlayerUI extends Component {
   render() {
     return (
@@ -13,6 +14,7 @@ export default class MusicPlayerUI extends Component {
         <CoverImage />
         <Info />
         <Duration />
+        <PlayerControl />
       </Container>
     );
   }

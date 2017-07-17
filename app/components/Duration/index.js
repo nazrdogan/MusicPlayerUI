@@ -1,21 +1,24 @@
 import React, { Component } from "react";
 import { Image, View } from "react-native";
+import { Text } from "native-base";
 import styles from "./durationStyles";
-var ProgressBar = require("react-native-progress-bar");
+import Slider from "react-native-slider";
 
 class Duration extends Component {
   state = {
-    progress: 0
+    value: 0.2
   };
 
   render() {
     return (
-      <View style={{ flex: 1 }}>
-        <ProgressBar
-          fillStyle={{}}
-          backgroundStyle={{ backgroundColor: "#cccccc", borderRadius: 2 }}
-          style={{ marginTop: 10, width: 300 }}
-          progress={this.state.progress}
+      <View style={styles.container}>
+        <View style={styles.duration}>
+          <Text note>0:00</Text>
+          <Text note>63:00</Text>
+        </View>
+        <Slider
+          value={this.state.value}
+          onValueChange={value => this.setState({ value })}
         />
       </View>
     );

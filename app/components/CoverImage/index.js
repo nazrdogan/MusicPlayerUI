@@ -4,9 +4,10 @@ import { Image, View } from "react-native";
 import styles from "./coverImageStyles";
 
 const CoverImage = () =>
-  <View style={{ flex: 2 }}>
+  <View style={{ flex: 4 }}>
     <Image
       style={styles.image}
+      resizeMode={"cover"}
       source={{
         uri: "https://www.eff.org/files/tor-https-1.png"
       }}
