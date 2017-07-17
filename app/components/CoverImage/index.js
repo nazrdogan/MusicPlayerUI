@@ -4,7 +4,7 @@ import { Image, View } from "react-native";
 import styles from "./coverImageStyles";
 
 const CoverImage = () =>
-  <View style={{ flex: 1 }}>
+  <View style={{ flex: 2 }}>
     <Image
       style={styles.image}
       source={{
