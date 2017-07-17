@@ -9,7 +9,6 @@ import PlayerControl from "./components/PlayerControl";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { getTrackInfo } from "./actions";
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -17,13 +16,15 @@ class App extends Component {
   componentDidMount() {
     this.props.getTrackInfo();
   }
-
   render() {
     const { trackInfo } = this.props;
+    if (trackInfo === undefined) {
+      return null;
+    }
     return (
       <Container>
         <PageHeader />
-        <CoverImage image={"https://www.eff.org/files/tor-https-1.png"} />
+        <CoverImage image={trackInfo.cover} />
         <Info title={trackInfo.title} artist={trackInfo.artist} />
         <Duration duration={trackInfo.duration} />
         <PlayerControl isLiked={trackInfo.is_liked} likes={trackInfo.likes} />
@@ -33,7 +34,7 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
-  return { trackInfo: state.trackInfo };
+  return { trackInfo: state.trackInfo.data };
 }
 
 function matchDispatchToProps(dispatch) {
