@@ -1,0 +1,3 @@
+rootProject.name = 'MusicPlayerUI'
+
+include ':app'
